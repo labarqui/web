@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     match '/sensor/create' => 'sensor#create', via: [:post, :put]
+    match '/sensor' => 'sensor#index', via: [:get]
   end
 
   get 'sensor/index'
