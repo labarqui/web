@@ -1,0 +1,33 @@
+var set_chart = function() {
+    console.log("loading sensor javascript");
+
+    var dataSource = $("#chart").attr("data-source");
+
+    var data = JSON.parse(dataSource);
+    var temp = ['temp'];
+    var hum = ['hum'];
+    data.forEach(function(d) {
+      d.date = d.created_at;
+      if (parseFloat(d.sensor_type) == 1.0) {
+        hum.push(d.value);
+      } else {
+        temp.push(d.value);
+      }
+    });
+
+    var chart = c3.generate({
+      bindto: '#chart',
+      data: {
+        columns: [
+          temp,
+          hum
+        ],
+        types: {
+          temp: 'spline',
+          hum: 'spline'
+        },
+      }
+    });
+  }
+$(document).ready(set_chart);
+$(document).on('page:load', set_chart);
