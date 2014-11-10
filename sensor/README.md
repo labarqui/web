@@ -1,4 +1,4 @@
-== Sensor visualization
+## Sensor visualization
 
 A simple web app to plot sensor data. Based on Ruby on Rails and C3.js.
 
