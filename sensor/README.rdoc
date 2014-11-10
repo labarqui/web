@@ -1,28 +1,19 @@
-== README
+== Sensor visualization
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple web app to plot sensor data. Based on Ruby on Rails and C3.js.
 
-Things you may want to cover:
+![Example](public/images/example.png)
 
-* Ruby version
+To get the server running:
 
-* System dependencies
+```
+rails s
+```
 
-* Configuration
+To post some data using curl:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+```
+curl -X POST -H "Content-Type: application/json" \
+-d '{"temperatura": 18.6, "humedad":38.7}' \
+http://localhost:3000/api/sensor/create
+```
